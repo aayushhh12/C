@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    double num1, num2;
+    char operator;
+
+    printf("Enter an operator (+, -, *, /, ^, sin, cos, tan, log, ln, sqrt): ");
+    scanf("%c", &operator);
+
+    printf("Enter the first number: ");
+    scanf("%lf", &num1);
+
+    if (operator != '^' && operator != 's' && operator != 'c' && operator != 't' && operator != 'l') {
+        printf("Enter the second number: ");
+        scanf("%lf", &num2);
+    }
+
+    switch (operator) {
+        case '+':
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, num1 + num2);
+            break;
+        case '-':
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, num1 - num2);
+            break;
+        case '*':
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, num1 * num2);
+            break;
+        case '/':
+            if (num2 == 0) {
+                printf("Error: Division by zero is not allowed.\n");
+            } else {
+                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, num1 / num2);
+            }
+            break;
+        case '^':
+            printf("%.2lf ^ %.2lf = %.2lf\n", num1, num2, pow(num1, num2));
+            break;
+        case 's':
+            printf("sin(%.2lf) = %.2lf\n", num1, sin(num1));
+            break;
+        case 'c':
+            printf("cos(%.2lf) = %.2lf\n", num1, cos(num1));
+            break;
+        case 't':
+            printf("tan(%.2lf) = %.2lf\n", num1, tan(num1));
+            break;
+        case 'l':
+            if (num1 <= 0) {
+                printf("Error: Logarithm of non-positive number is not allowed.\n");
+            } else {
+                printf("log10(%.2lf) = %.2lf\n", num1, log10(num1));
+            }
+            break;
+        case 'n':
+            if (num1 <= 0) {
+                printf("Error: Natural logarithm of non-positive number is not allowed.\n");
+            } else {
+                printf("ln(%.2lf) = %.2lf\n", num1, log(num1));
+            }
+            break;
+        case 'S':
+            printf("sqrt(%.2lf) = %.2lf\n", num1, sqrt(num1));
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            break;
+    }
+
+    return 0;
+}
